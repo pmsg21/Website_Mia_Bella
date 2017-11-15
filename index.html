@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Proyecto OnNet</title>
+        <meta name="viewport" content="width=device-width">
+        <!--    Hojas de Estilo propias   -->
+        <!--    Hojas de Estilo de Librerias   -->
+        <link rel="stylesheet" href="Content/libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="Content/libs/bootstrap/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="Content/libs/angular/angular-material.min.css">
+        <!--    Librerias AngularJS    -->
+        <script src="Content/libs/angular/angular.min.js"></script>
+        <script src="Content/libs/angular/angular-route.min.js"></script>
+        <script src="Content/libs/angular/angular-animate.min.js"></script>
+        <script src="Content/libs/angular/angular-cookies.min.js"></script>
+        <script src="Content/libs/angular/angular-loader.min.js"></script>
+        <script src="Content/libs/angular/angular-messages.min.js"></script>
+        <script src="Content/libs/angular/angular-aria.min.js"></script>
+        <script src="Content/libs/angular/angular-sanitize.min.js"></script>
+        <script src="Content/libs/angular/angular-material.min.js"></script>
+        <!--    Librerias JS    -->
+        <script src="Content/libs/jquery/jquery.min.js"></script>
+        <script src="Content/libs/bootstrap/js/bootstrap.min.js"></script>
+        <!--    Modulos AngularJS    -->
+        <script src="AngularApp/JS/Modules/AppModules.js"></script>
+        <!--    Configuración AngularJS    -->
+        <script src="AngularApp/JS/Config/Config.js"></script>
+        <!--    Constantes AngularJS    -->
+        <script src="AngularApp/JS/Constants/AppConstants.js"></script>
+        <!--    Servicios AngularJS    -->
+        <script src="AngularApp/JS/Services/AppServices.js"></script>
+        <!--    Controladores AngularJS    -->
+        <script src="AngularApp/JS/Controllers/NavController.js"></script>
+        <script src="AngularApp/JS/Controllers/ControllerInicio.js"></script>
+        <script src="AngularApp/JS/Controllers/ControllerNosotros.js"></script>
+    </head>
+    <body ng-app="OnNet">
+        <div ng-controller="NavController">
+          <md-content class="md-padding">
+            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+              <md-nav-item md-nav-click="showContent(item.URL)" ng-repeat="item in navItems" name="{{item.Seccion}}">
+                {{item.Seccion}}
+              </md-nav-item>
+              <!-- these require actual routing with ui-router or ng-route, so they
+              won't work in the demo
+              <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+              <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+              You can also add options for the <code>ui-sref-opts</code> attribute.
+              <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+                Page Six
+              </md-nav-item>
+              -->
+            </md-nav-bar>
+          </md-content>
+        </div>
+        <div class="container" ng-view>
+
+        </div>
+    </body>
+</html>
