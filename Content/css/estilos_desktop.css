@@ -7,6 +7,12 @@ body {
 body .blackText {
   color: #000000;
 }
+body .orangeText {
+  color: #ff702b;
+}
+body .whiteText {
+  color: #ffffff;
+}
 body .row {
   margin-right: 0;
   margin-left: 0;
@@ -16,6 +22,74 @@ body .noMargin {
 }
 body .iconsMargin {
   margin-top: 2%;
+}
+body .md-button.md-default-theme.md-primary.md-fab,
+body .md-button.md-primary.md-fab,
+body .md-button.md-default-theme.md-primary.md-raised,
+body .md-button.md-primary.md-raised {
+  background-color: #ff702b !important;
+}
+body .md-button.md-default-theme.md-primary.md-fab,
+body .md-button.md-primary.md-fab,
+body .md-button.md-default-theme.md-primary.md-raised,
+body .md-button.md-primary.md-raised:hover {
+  background-color: #fd5c11 !important;
+}
+body .col-lg-1,
+body .col-lg-10,
+body .col-lg-11,
+body .col-lg-12,
+body .col-lg-2,
+body .col-lg-3,
+body .col-lg-4,
+body .col-lg-5,
+body .col-lg-6,
+body .col-lg-7,
+body .col-lg-8,
+body .col-lg-9,
+body .col-md-1,
+body .col-md-10,
+body .col-md-11,
+body .col-md-12,
+body .col-md-2,
+body .col-md-3,
+body .col-md-4,
+body .col-md-5,
+body .col-md-6,
+body .col-md-7,
+body .col-md-8,
+body .col-md-9,
+body .col-sm-1,
+body .col-sm-10,
+body .col-sm-11,
+body .col-sm-12,
+body .col-sm-2,
+body .col-sm-3,
+body .col-sm-4,
+body .col-sm-5,
+body .col-sm-6,
+body .col-sm-7,
+body .col-sm-8,
+body .col-sm-9,
+body .col-xs-1,
+body .col-xs-10,
+body .col-xs-11,
+body .col-xs-12,
+body .col-xs-2,
+body .col-xs-3,
+body .col-xs-4,
+body .col-xs-5,
+body .col-xs-6,
+body .col-xs-7,
+body .col-xs-8,
+body .col-xs-9 {
+  padding-right: 0;
+  padding-left: 0;
+}
+body .md-primary {
+  width: 50%;
+  margin-top: 10%;
+  text-transform: capitalize;
 }
 body .HeaderController .logo {
   width: 40%;
@@ -105,6 +179,17 @@ body .HeaderController md-content {
 body .HeaderController .md-padding {
   padding: 0px;
   overflow: hidden;
+}
+body .HeaderController span {
+  text-transform: capitalize;
+}
+body .carousel-indicators li {
+  background-color: gray;
+  border: 1px solid gray;
+}
+body .carousel-indicators .active {
+  background-color: black;
+  border-color: black;
 }
 body .carouselZoom {
   -webkit-animation: carouselZoomAnimation 15s linear infinite alternate;
@@ -210,9 +295,81 @@ body .carousel-caption:hover {
   color: #ff702b;
   border-color: #ff702b;
 }
-body #aboutUs {
-  color: #000000;
-}
 body .dottedBorder {
   border-bottom: 1px dashed #ffa500;
 }
+body hr {
+  border-top: 1px solid #ff702b;
+}
+body #aboutUs {
+  color: #000000;
+}
+body #aboutUs .col-lg-4 {
+  margin-top: 10%;
+  margin-bottom: 3%;
+}
+body #aboutUs img {
+  position: absolute;
+  left: -25%;
+}
+body #aboutUs .aboutUsBackground {
+  width: 100%;
+  height: 300px;
+  background: black;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#000000, #464646);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#000000, #464646);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#000000, #464646);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#000000, #464646);
+  /* Standard syntax (must be last) */
+}
+body #onlineStore .productMargin {
+  margin-top: 5%;
+}
+body #courses {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  margin-top: 5%;
+}
+body #courses h1 {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+body #contacts .contactsMargin {
+  margin-top: 10%;
+}
+body #contacts button {
+  position: relative;
+  left: -15%;
+}
+body footer {
+  background: black;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#000000, #464646);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#000000, #464646);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#000000, #464646);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#000000, #464646);
+  /* Standard syntax (must be last) */
+  padding: 5%;
+}
+/* PANTALLAS DE ESCRITORIO MEDIANAS*/
+@media only screen and (min-device-width: 1152px) and (max-device-width: 1300px) {
+  body .HeaderController .blackText {
+    color: #000000;
+    font-size: 13px;
+  }
+  body .carousel-caption h1 {
+    font-size: 38px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+}
+/* PANTALLAS DE ESCRITORIO MEDIANAS*/
