@@ -1,5 +1,5 @@
-OnNetApp.constant('Constants' , {
+MiaBellaApp.constant('Constants' , {
  
-    'websiteName':'Proyecto OnNet',
-    'apiURL':'http://localhost/AngularJS/api/'
+    'websiteName':'Mia Bella Jewerly',
+    // 'apiURL':'http://localhost/AngularJS/api/'
 })

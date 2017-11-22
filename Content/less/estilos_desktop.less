@@ -1,0 +1,202 @@
+@import "variables.less";
+
+body
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    .blackText
+    {
+        color: @blackText;
+    }
+    .row
+    {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .noMargin
+    {
+        margin: 0 !important;
+    }
+    .iconsMargin
+    {
+        margin-top: 2%;
+    }
+    .HeaderController
+    {
+        .logo
+        {
+            width: 40%;
+            margin: auto;
+            -o-transition: all .5s;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            transition: all .5s;
+        }
+        .logo:hover
+        {
+            -webkit-filter: brightness(150%);
+            -ms-filter: brightness(150%);
+            filter: brightness(150%);
+            -o-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        .iconSeparator
+        {
+            border-right: 1px solid black;
+        }
+        .md-button.md-icon-button 
+        {
+            margin-left: -30px;
+            height: 100%;
+            min-width: 0;
+            line-height: 24px;
+            width: 22%;
+            border-radius: 50%;
+            -webkit-filter: brightness(50%);
+            -ms-filter: brightness(50%);
+            filter: brightness(50%);
+            -o-transition: all .5s;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            transition: all .5s;
+        }
+        .md-button.md-icon-button:hover
+        {
+            -webkit-filter: brightness(100%);
+            -ms-filter: brightness(100%);
+            filter: brightness(100%);
+            -o-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+        .md-button.md-default-theme.md-accent, .md-button.md-accent
+        {
+            color: @primaryDetailsColor;
+        }
+        md-nav-bar.md-default-theme .md-nav-bar, md-nav-bar .md-nav-bar
+        {
+            border: none;
+        }
+        
+        md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar
+        {
+            color: @primaryDetailsColor;
+            background: @primaryDetailsColor;
+        }
+        md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected 
+        {
+            color: @whiteText;
+            -o-transition: all .5s;
+            -moz-transition: all .5s;
+            -webkit-transition: all .5s;
+            transition: all .5s;
+        }
+        md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected:hover 
+        {
+            color: @primaryDetailsColor;
+        }
+        md-nav-ink-bar
+        {
+            bottom:10px !important;
+        }
+        md-content.md-default-theme, md-content
+        {
+            background: black; /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* Standard syntax (must be last) */
+        }
+        .md-padding
+        {
+            padding: 0px;
+            overflow: hidden;
+        }
+    }
+    .carouselZoom
+    {
+        -webkit-animation: carouselZoomAnimation 15s linear infinite alternate;
+        -o-animation:  carouselZoomAnimation 15s linear infinite alternate;
+        -moz-animation:  carouselZoomAnimation 15s linear infinite alternate;
+        animation: carouselZoomAnimation 15s linear infinite alternate;
+    }
+    @-webkit-keyframes carouselZoomAnimation
+    {
+        0%   {transform:scale(1)}
+        25%  {transform:scale(1.1)}
+        50%  {transform:scale(1.2)}
+        75%  {transform:scale(1.3)}
+        100% {transform:scale(1.4)}
+    }
+    @-o-keyframes carouselZoomAnimation
+    {
+        0%   {transform:scale(1)}
+        25%  {transform:scale(1.1)}
+        50%  {transform:scale(1.2)}
+        75%  {transform:scale(1.3)}
+        100% {transform:scale(1.4)}
+    }
+    @-moz-keyframes carouselZoomAnimation
+    {
+        0%   {transform:scale(1)}
+        25%  {transform:scale(1.1)}
+        50%  {transform:scale(1.2)}
+        75%  {transform:scale(1.3)}
+        100% {transform:scale(1.4)}
+    }
+    @keyframes carouselZoomAnimation
+    {
+        0%   {transform:scale(1)}
+        25%  {transform:scale(1.1)}
+        50%  {transform:scale(1.2)}
+        75%  {transform:scale(1.3)}
+        100% {transform:scale(1.4)}
+    }
+    .item
+    {
+        position: relative;
+    }
+    .carousel-caption
+    {
+        border: 2px solid white; 
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 50%;
+        height: 30%;
+        margin: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+        -o-transition: all .5s;
+        -moz-transition: all .5s;
+        -webkit-transition: all .5s;
+        transition: all .5s;
+        h1
+        {
+            font-size: 46px;
+            margin-top: 0px;
+            margin-bottom: 30px;
+        }
+    }
+    .carousel-caption:hover
+    {
+        background: rgba(0,0,0,.4);
+        color: @primaryDetailsColor;
+        border-color: @primaryDetailsColor;
+    }
+    #aboutUs
+    {
+        color: @blackText;
+    }
+    .dottedBorder
+    {
+        border-bottom: 1px dashed @lightDetailsColor;
+    }
+}

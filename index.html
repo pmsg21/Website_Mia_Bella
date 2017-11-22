@@ -2,9 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Proyecto OnNet</title>
+        <title>Mia Bella Jewerly</title>
         <meta name="viewport" content="width=device-width">
         <!--    Hojas de Estilo propias   -->
+        <link rel="stylesheet" href="Content/css/estilos.css">
+        <link rel="stylesheet" href="Content/css/estilos_desktop.css">
+        <link rel="stylesheet" href="Content/css/estilos_tablet.css">
+        <link rel="stylesheet" href="Content/css/estilos_phone.css">
         <!--    Hojas de Estilo de Librerias   -->
         <link rel="stylesheet" href="Content/libs/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="Content/libs/bootstrap/css/bootstrap-theme.min.css">
@@ -22,6 +26,8 @@
         <!--    Librerias JS    -->
         <script src="Content/libs/jquery/jquery.min.js"></script>
         <script src="Content/libs/bootstrap/js/bootstrap.min.js"></script>
+        <!--    Scripts JS    -->
+        <script src="Scripts/MainScript.js"></script>
         <!--    Modulos AngularJS    -->
         <script src="AngularApp/JS/Modules/AppModules.js"></script>
         <!--    Configuración AngularJS    -->
@@ -30,31 +36,57 @@
         <script src="AngularApp/JS/Constants/AppConstants.js"></script>
         <!--    Servicios AngularJS    -->
         <script src="AngularApp/JS/Services/AppServices.js"></script>
+        <!--    Directivas AngularJS    -->
+        <script src="AngularApp/JS/Directives/AppDirectives.js"></script>
         <!--    Controladores AngularJS    -->
-        <script src="AngularApp/JS/Controllers/NavController.js"></script>
-        <script src="AngularApp/JS/Controllers/ControllerInicio.js"></script>
-        <script src="AngularApp/JS/Controllers/ControllerNosotros.js"></script>
+        <script src="AngularApp/JS/Controllers/HeaderController.js"></script>
+        <script src="AngularApp/JS/Controllers/MainController.js"></script>
     </head>
-    <body ng-app="OnNet">
-        <div ng-controller="NavController">
-          <md-content class="md-padding">
-            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-              <md-nav-item md-nav-click="showContent(item.URL)" ng-repeat="item in navItems" name="{{item.Seccion}}">
-                {{item.Seccion}}
-              </md-nav-item>
-              <!-- these require actual routing with ui-router or ng-route, so they
-              won't work in the demo
-              <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
-              <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
-              You can also add options for the <code>ui-sref-opts</code> attribute.
-              <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
-                Page Six
-              </md-nav-item>
-              -->
-            </md-nav-bar>
+    <body ng-app="MiaBella">
+        <div ng-controller="HeaderController" class="HeaderController">
+          <header id="home">
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <img src="Content/img/logo.png" alt="logo" class="img-responsive logo"> 
+              </div>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6 iconsMargin">
+                <div class="row">
+                  <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 iconSeparator">
+                    <md-button class="md-icon-button" aria-label="facebook">
+                      <img src="Content/img/icons/facebook.svg" class="img-responsive" alt="facebook"></img>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="twitter">
+                      <img src="Content/img/icons/twitter.svg" class="img-responsive" alt="twitter"></img>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="instagram">
+                      <img src="Content/img/icons/instagram.svg" class="img-responsive" alt="instagram"></img>
+                    </md-button>
+                    <md-button aria-label="login/register">
+                      <b class="text-uppercase blackText">Login/Register</b>
+                    </md-button>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pull-right">
+                    <md-button class="md-icon-button noMargin" aria-label="Shopping Cart">
+                      <img src="Content/img/icons/shopping-cart.svg" class="img-responsive" alt="Shopping Cart"></img>
+                    </md-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </header>  
+          <md-content class="md-padding nav">
+            <div class="row">
+              <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3 visible-lg-block visible-md-block visible-sm-block">
+                <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                  <md-nav-item md-nav-click="scrollTo(item.redirectTo)" ng-repeat="item in navItems" name="{{item.Seccion}}">
+                    {{item.section}}
+                  </md-nav-item>
+                </md-nav-bar>
+              </div>
+            </div>
           </md-content>
         </div>
-        <div class="container" ng-view>
+        <div ng-view>
 
         </div>
     </body>
