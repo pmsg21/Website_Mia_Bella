@@ -343,8 +343,26 @@ body #courses h1 {
   margin-top: 10%;
   margin-bottom: 10%;
 }
+body #contacts {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+body #contacts .row {
+  height: 100%;
+  position: relative;
+}
 body #contacts .contactsMargin {
-  margin-top: 10%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 50%;
+  height: 30%;
+  margin: auto;
+  margin-left: 50%;
 }
 body #contacts button {
   position: relative;
