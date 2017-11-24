@@ -5,6 +5,10 @@ MiaBellaApp.config(['$routeProvider' , function($routeProvider)
         templateUrl: 'AngularApp/Templates/MainPage.html',
         controller: 'MainController'
     })
+    .when('/Product/:ID' , {      
+        templateUrl: 'AngularApp/Templates/ProductPage.html',
+        controller: 'ProductController'
+    })
     .otherwise({        
         redirectTo: '/'        
     })

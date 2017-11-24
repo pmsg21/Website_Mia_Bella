@@ -108,6 +108,7 @@ body
         .md-button.md-default-theme.md-accent, .md-button.md-accent
         {
             color: @primaryDetailsColor;
+            width: 100%;
         }
         md-nav-bar.md-default-theme .md-nav-bar, md-nav-bar .md-nav-bar
         {
@@ -212,6 +213,7 @@ body
     .carousel-caption
     {
         border: 2px solid white; 
+        opacity: 1;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -226,12 +228,51 @@ body
         -moz-transition: all .5s;
         -webkit-transition: all .5s;
         transition: all .5s;
+        -webkit-animation: animateOpacity 1s ease-in-out;
+        -o-animation:  animateOpacity 1s ease-in-out;
+        -moz-animation:  animateOpacity 1s ease-in-out;
+        animation: animateOpacity 1s ease-in-out;
         h1
         {
+            position: relative;
+            opacity: 1;
             font-size: 46px;
             margin-top: 0px;
             margin-bottom: 30px;
+            -webkit-animation: animateOpacity 1s ease-in-out;
+            -o-animation:  animateOpacity 1s ease-in-out;
+            -moz-animation:  animateOpacity 1s ease-in-out;
+            animation: animateOpacity 1s ease-in-out;
         }
+        p
+        {
+            position: relative;
+            opacity: 1;
+            -webkit-animation: animateOpacity 1s ease-in-out;
+            -o-animation:  animateOpacity 1s ease-in-out;
+            -moz-animation:  animateOpacity 1s ease-in-out;
+            animation: animateOpacity 1s ease-in-out;
+        }
+    }
+    @-webkit-keyframes animateOpacity
+    {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
+    @-o-keyframes animateOpacity
+    {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
+    @-moz-keyframes animateOpacity
+    {
+        from {opacity: 0}
+        to {opacity: 1}
+    }
+    @keyframes animateOpacity
+    {
+        from {opacity: 0}
+        to {opacity: 1}
     }
     .carousel-caption:hover
     {
@@ -263,7 +304,7 @@ body
         .aboutUsBackground
         {
             width: 100%;
-            height: 300px;
+            height: 350px;
             background: black; /* For browsers that do not support gradients */
             background: -webkit-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Safari 5.1 to 6.0 */
             background: -o-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Opera 11.1 to 12.0 */
@@ -276,6 +317,25 @@ body
         .productMargin
         {
             margin-top: 5%;
+        }
+        .ih-item.circle
+        {
+            width: 180px;
+            height: 180px;
+            .img
+            {
+                width: 180px;
+                height: 180px;
+            }
+            h3
+            {
+                padding: 45px 0 0 0;
+                height: 100px;
+            }
+            p
+            {
+                color: white;
+            }
         }
     }
     #courses

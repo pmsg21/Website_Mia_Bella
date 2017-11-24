@@ -11,7 +11,16 @@ MiaBellaApp.controller('HeaderController', function($scope , $location, Constant
     
     $scope.scrollTo = function (elementID)
     {
-        anchorSmoothScroll.scrollTo(elementID);
+        if($location.url() != "/")
+        {
+            $location.url("/");
+            setTimeout(function()
+            { 
+                anchorSmoothScroll.scrollTo(elementID);
+            }, 500);
+        }
+        else
+            anchorSmoothScroll.scrollTo(elementID);
     };
 
 });

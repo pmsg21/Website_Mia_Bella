@@ -1,4 +1,4 @@
-MiaBellaApp.controller('MainController', function($scope)
+MiaBellaApp.controller('MainController', function($scope, $location)
 {   
     $scope.loading = false;
     $scope.banners = [{'index': 1,
@@ -101,4 +101,9 @@ MiaBellaApp.controller('MainController', function($scope)
                        'imgSrc': 'Content/img/banners/contacts.png',
                        'imgAlt': 'contacts'}
 
+    $scope.ShowProductDetails = function(productId)
+    {
+        $location.url("/Product/" + productId);
+    }
+    
 });

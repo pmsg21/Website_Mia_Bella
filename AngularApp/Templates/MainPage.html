@@ -41,10 +41,28 @@
             <hr>
         </header>
         <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 productMargin" ng-repeat="product in onlineStore.products">
+                <div class="ih-item circle effect13 from_left_and_right">
+                    <a href="javascript:void(0)" ng-click="ShowProductDetails(product.productId)">
+                        <div class="img">
+                                <img src="{{product.imgSrc}}" alt="{{product.imgAlt}}" class="img-responsive">
+                        </div>
+                        <div class="info">
+                            <div class="info-back">
+                                <h3>{{product.productName}}</h3>
+                                <p>Ver Detalles</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+          
+        <!-- <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6 productMargin" ng-repeat="product in onlineStore.products">
                 <img src="{{product.imgSrc}}" alt="{{product.imgAlt}}" class="img-responsive img-circle">
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <section id="courses" style="background-image: url({{courses.backgroundUrl}});">
