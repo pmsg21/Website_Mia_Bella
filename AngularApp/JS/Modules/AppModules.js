@@ -1,6 +1,7 @@
 //Modulos
 var modules = ['ngRoute',
                'ngAnimate',
-               'ngMaterial'] ;
+               'ngMaterial',
+               'ngMessages'] ;
 
 var MiaBellaApp = angular.module('MiaBella', modules);

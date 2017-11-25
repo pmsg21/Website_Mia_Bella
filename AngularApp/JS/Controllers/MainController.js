@@ -1,4 +1,4 @@
-MiaBellaApp.controller('MainController', function($scope, $location)
+MiaBellaApp.controller('MainController', function($scope, $location, $mdDialog)
 {   
     $scope.loading = false;
     $scope.banners = [{'index': 1,
@@ -104,6 +104,34 @@ MiaBellaApp.controller('MainController', function($scope, $location)
     $scope.ShowProductDetails = function(productId)
     {
         $location.url("/Product/" + productId);
+    }
+    
+    $scope.OpenContactModal = function(ev) 
+    {
+        $mdDialog.show({
+            controller: ContactController,
+            templateUrl: 'AngularApp/Templates/Modals/ContactModal.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: $scope.customFullscreen
+        });
+    };
+
+    function ContactController($scope, $mdDialog) 
+    {
+        $scope.loading = false;
+
+        $scope.cancel = function() 
+        {
+            $mdDialog.cancel();
+        };
+    
+        $scope.SubmitContact = function()
+        {
+            $mdDialog.hide();
+        }
+
     }
     
 });

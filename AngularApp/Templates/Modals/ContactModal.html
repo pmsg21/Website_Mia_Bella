@@ -1,0 +1,67 @@
+<md-dialog aria-label="Contact Forms" class="HalfWidthModal">
+    <form novalidate name="contactForm" ng-submit="SubmitContact()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Contact Us</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                        <md-icon aria-label="Close dialog"><i class="fa fa-times fa-2x" aria-hidden="true"></i></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <md-input-container class="md-block">
+                        <label>Name</label>
+                        <input type="text" ng-pattern ="/^[a-zA-Z\s]*$/" required name="name" ng-model="contact.name">
+                        <div ng-messages="contactForm.name.$error">
+                            <div ng-message="required">This field is required.</div>
+                            <div ng-message="pattern">You must enter only letters in this field.</div>
+                        </div>
+                    </md-input-container> 
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <md-input-container class="md-block">
+                        <label>Lastname</label>
+                        <input type="text" ng-pattern ="/^[a-zA-Z\s]*$/" required name="lastname" ng-model="contact.lastname">
+                        <div ng-messages="contactForm.lastname.$error">
+                            <div ng-message="required">This field is required.</div>
+                            <div ng-message="pattern">You must enter only letters in this field.</div>
+                        </div>
+                    </md-input-container> 
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input type="email" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required name="email" ng-model="contact.email">
+                        <div ng-messages="contactForm.email.$error">
+                            <div ng-message="required">This field is required.</div>
+                            <div ng-message="pattern">You must enter a valid email.</div>
+                        </div>
+                    </md-input-container> 
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <md-input-container class="md-block">
+                        <label>Question</label>
+                        <input type="text" required name="question" ng-model="contact.question">
+                        <div ng-messages="contactForm.question.$error">
+                            <div ng-message="required">This field is required.</div>
+                        </div>
+                    </md-input-container> 
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button type="submit" ng-disabled="!contactForm.$valid">
+                Send
+            </md-button>
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
