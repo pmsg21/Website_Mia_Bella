@@ -78,19 +78,26 @@
             </div>
           </header>  
           <md-content class="md-padding nav">
-            <div class="row">
-              <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3 visible-lg-block visible-md-block visible-sm-block">
-                <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-                  <md-nav-item md-nav-click="scrollTo(item.redirectTo)" ng-repeat="item in navItems" name="{{item.Seccion}}">
-                    {{item.section}}
-                  </md-nav-item>
-                </md-nav-bar>
+            <nav>
+              <div class="row">
+                <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3 visible-lg-block visible-md-block visible-sm-block">
+                  <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                    <md-nav-item md-nav-click="scrollTo(item.redirectTo)" ng-repeat="item in navItems" name="{{item.Seccion}}">
+                      {{item.section}}
+                    </md-nav-item>
+                  </md-nav-bar>
+                </div>
               </div>
-            </div>
+            </nav>
           </md-content>
         </div>
         <div ng-view class="body">
 
         </div>
+        <footer>
+            <div class="container">
+                <p class="text-center whiteText">&copy; Copyright: 2017</p>
+            </div>
+        </footer>
     </body>
 </html>
