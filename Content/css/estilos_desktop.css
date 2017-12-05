@@ -419,6 +419,7 @@ body #contacts {
   background-size: cover;
   background-repeat: no-repeat;
   height: 400px;
+  background-position: 0px 100px;
 }
 body #contacts .row {
   height: 100%;

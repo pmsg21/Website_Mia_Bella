@@ -1,0 +1,28 @@
+@media only screen and (max-device-width: 767px) and (min-device-width: 320px) {
+  body md-dialog {
+    max-width: 90%;
+  }
+  body .HalfWidthModal {
+    width: 90%;
+  }
+  body #courses {
+    background-repeat: no-repeat;
+    height: 450px;
+    margin-top: 5%;
+    background-position: top;
+    background-attachment: fixed;
+    background-size: initial;
+  }
+  body #courses p {
+    text-align: justify;
+  }
+  body #contacts {
+    background-position: 0px 100px;
+  }
+  body #contacts .contactsMargin {
+    margin-left: 30%;
+  }
+  body #contacts button {
+    left: 10%;
+  }
+}
