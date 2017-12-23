@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Mia Bella Jewerly</title>
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width; initial-scale=1">
         <!--    Hojas de Estilo propias   -->
         <link rel="stylesheet" href="Content/css/estilos.css">
         <link rel="stylesheet" href="Content/css/estilos_desktop.css">
@@ -46,7 +46,7 @@
         <script src="AngularApp/JS/Controllers/ProductController.js"></script>
     </head>
     <body data-ng-app="MiaBella">
-        <div data-ng-controller="HeaderController" class="HeaderController">
+        <div data-ng-controller="HeaderController" class="HeaderController" id="header">
           <header id="home">
             <div class="row">
               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -81,6 +81,13 @@
             <div class="row">
               <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3">
                 <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                  <div class="visible-xs">
+                      <span style="font-size:30px;color:white" onclick="AnimateSidenav()">&#9776;</span>
+                      <div id="sidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="AnimateSidenav()">&times;</a>
+                        <a data-ng-repeat="item in navItems" onclick="AnimateSidenav()" data-ng-click="scrollTo(item.redirectTo)" href="#">{{item.section}}</a>
+                      </div>
+                  </div>
                   <md-nav-item class="hidden-xs" md-nav-click="scrollTo(item.redirectTo)" data-ng-repeat="item in navItems" name="{{item.Seccion}}">
                     {{item.section}}
                   </md-nav-item>
@@ -89,10 +96,10 @@
             </div>
           </md-content>
         </div>
-        <div data-ng-view class="body">
+        <div data-ng-view class="body" id="body">
 
         </div>
-        <footer>
+        <footer id="footer">
             <div class="container">
                 <p class="text-center whiteText">&copy; Copyright: 2017</p>
             </div>

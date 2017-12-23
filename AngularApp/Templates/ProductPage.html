@@ -1,6 +1,65 @@
-<h1 class="text-center">Código de producto: {{productId}}</h1>
-<br>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet voluptate repellat necessitatibus ratione corrupti aperiam consequuntur odio. Sed dolore, nemo cumque iusto possimus officiis esse atque dolorem perspiciatis dolorum necessitatibus!
-Odit quis sed, corporis ipsam quidem debitis repellat consequuntur odio similique eum! Ut officiis laudantium doloremque obcaecati nisi porro perspiciatis culpa magnam eius hic, molestias dolore reiciendis. Enim, a magnam!
-Odio, quae eveniet sed obcaecati nobis id quod, sequi delectus maxime ipsa pariatur, quibusdam reprehenderit velit! Itaque necessitatibus quae labore, exercitationem eaque doloribus, veniam enim libero vel error, iure odit?
-Eaque quae aliquam, vero dicta in praesentium, cumque asperiores odio consectetur nisi possimus? Minus ipsum expedita cumque hic, eum soluta ab quaerat illum quia, excepturi tempore sed alias. Aut, quaerat.
-Voluptas assumenda molestiae eligendi excepturi. Dolor earum omnis alias error quidem atque accusamus vel doloribus, sapiente suscipit molestiae neque, itaque distinctio recusandae modi qui consequuntur! Quibusdam quae provident libero a?
+<section id="product" data-ng-init="GetProductDetails()">
+    <div class="container">
+        <header>
+            <h1 class="text-center">{{productName}}</h1>
+            <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet voluptate repellat necessitatibus ratione corrupti aperiam consequuntur odio.</p>
+        </header>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <img src="{{imgSrc}}" alt="{{imgAlt}}" class="img-responsive">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <h2>{{productName}}</h2>
+                            <p>{{productDescription}}</p>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <form novalidate name="productForm" data-ng-submit="AddToCart()">
+                            <h3>$ {{productPrice}}</h3>
+                            <small>
+                                Califica este producto 
+                                <md-icon aria-label="rating"><i class="fa fa-star fa-2x" aria-hidden="true"></i></md-icon>
+                                <md-icon aria-label="rating"><i class="fa fa-star fa-2x" aria-hidden="true"></i></md-icon>
+                                <md-icon aria-label="rating"><i class="fa fa-star fa-2x" aria-hidden="true"></i></md-icon>
+                                <md-icon aria-label="rating"><i class="fa fa-star fa-2x" aria-hidden="true"></i></md-icon>
+                                <md-icon aria-label="rating"><i class="fa fa-star fa-2x" aria-hidden="true"></i></md-icon>
+                            </small>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <span>Cantidad</span>
+                                    <md-input-container class="md-block">
+                                        <input type="number" required name="question" min="1" data-ng-init="product.number = 1" data-ng-model="product.number">
+                                        <div data-ng-messages="productForm.question.$error">
+                                            <div data-ng-message="required">This field is required.</div>
+                                            <div data-ng-message="number">This field accept only possitive numbers.</div>
+                                        </div>
+                                    </md-input-container> 
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <md-icon aria-label="minus" data-ng-click="RemoveProduct()">
+                                    <i class="fa fa-minus fa-2x" aria-hidden="true"></i>
+                                </md-icon>
+                                <md-icon aria-label="plus" data-ng-click="AddProduct()">
+                                    <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                                </md-icon>
+                            </div>
+                            <md-button class="md-raised md-primary" type="submit" data-ng-disabled="!productForm.$valid">
+                                <md-icon aria-label="buy"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></md-icon>
+                            </md-button>
+                            <small>
+                                <md-icon aria-label="add to wish list">
+                                    <i class="fa fa-heart fa-2x" aria-hidden="true"></i>
+                                </md-icon>
+                                Añadir a la lista de deseos
+                            </small>
+                        </form>
+                    </md-card-content>
+                </md-card>
+            </div>
+        </div>
+    </div>
+</section>

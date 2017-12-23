@@ -18,4 +18,25 @@ $(document).ready(function() {
 });
 //#endregion
 //#region Menu ocultable
+var counter = 0;
+
+function AnimateSidenav()
+{
+    if(counter == 0)
+    {
+        document.getElementById("sidenav").style.width = "250px";
+        document.getElementById("header").style.marginLeft = "250px";
+        document.getElementById("body").style.marginLeft = "250px";
+        document.getElementById("footer").style.marginLeft = "250px";
+        counter++;
+    }
+    else
+    {
+        document.getElementById("sidenav").style.width = "0";
+        document.getElementById("header").style.marginLeft = "0";
+        document.getElementById("body").style.marginLeft = "0";
+        document.getElementById("footer").style.marginLeft = "0";
+        counter--;
+    }
+}
 //#endregion

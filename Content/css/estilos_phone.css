@@ -1,4 +1,59 @@
 @media only screen and (max-device-width: 767px) and (min-device-width: 320px) {
+  body #header {
+    width: 100%;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+  body #body {
+    width: 100%;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+  body #footer {
+    width: 100%;
+    -o-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+  }
+  body .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  body .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  body .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  body .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  body md-nav-bar.md-default-theme md-nav-ink-bar,
+  body md-nav-bar md-nav-ink-bar {
+    display: none;
+  }
   body md-dialog {
     max-width: 90%;
   }
@@ -24,5 +79,13 @@
   }
   body #contacts button {
     left: 10%;
+  }
+}
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
   }
 }

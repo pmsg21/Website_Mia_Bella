@@ -6,6 +6,7 @@ body
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
     .body
     {
         background: white;
@@ -34,6 +35,12 @@ body
     .iconsMargin
     {
         margin-top: 2%;
+        .row
+        {
+            position: relative;
+            right: -20%;
+            width: 100%;
+        }
     }
     .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised
     {
@@ -415,6 +422,61 @@ body
         md-input-container:not(.md-input-invalid).md-input-focused label
         {
             color: @lightDetailsColor !important; 
+        }
+    }
+    #product
+    {
+        p.text-center
+        {
+            width: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img
+        {
+            width: 70%;
+            margin: auto;
+        }
+        md-card
+        {
+            background-color: rgb(245, 245, 245);
+            h2, h3
+            {
+                color: @primaryDetailsColor;
+            }
+            md-icon
+            {
+                color: @primaryDetailsColorOpacity;
+                -o-transition: all .5s;
+                -moz-transition: all .5s;
+                -webkit-transition: all .5s;
+                transition: all .5s;
+            }
+            md-icon:hover
+            {
+                color: @primaryDetailsColor;
+                cursor: pointer;
+            }
+            .md-button
+            {
+                width: 80%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                md-icon
+                {
+                    color: @whiteText;
+                }
+            }
+            md-input-container:not(.md-input-invalid).md-input-focused .md-input
+            {
+                border-color: @lightDetailsColor !important; 
+            }
+            md-input-container:not(.md-input-invalid).md-input-focused label
+            {
+                color: @lightDetailsColor !important; 
+            }
         }
     }
 }
