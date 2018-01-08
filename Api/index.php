@@ -3,43 +3,68 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
-require 'connection.php';
+require 'connection/connection.php';
 
 $app = new \Slim\App;
 
 $app->get("/", function(Request $request, Response $response) 
 {
-    $response->write("Welcome to Slim!!!");
-    return $response;
+    
 });
 
-$app->get("/GetNavSections", function(Request $request, Response $response) 
+$app->get("/GetSections/", function(Request $request, Response $response) 
 {
     try
     {
-        $db = GetDB();
-        $query = $db->prepare("SELECT * FROM menu");
-        $query->execute();
-        $result = $query->fetchAll(PDO::FETCH_ASSOC);
-        if($result)
+        $db = Connect();
+        $data = array();
+        $result = $db->query("SELECT id, section, redirectTo FROM menu");
+        while($row = $result->fetch_assoc())
         {
-            $response = $response->withJson($result);    
-            $db = null;
+            $sections = array('id' => $row["id"],
+                              'section' => $row["section"],
+                              'redirectTo' => $row["redirectTo"]);
+            $section = array();
+            $section = array_merge($sections, $section);
+            array_push($data, $section);
         }
-        $response->write();
+        $db->close();
+        $response->write(json_encode($data));
+        return $response;
     }
-    catch(PDOException $e)
+    catch(Exception $e)
     {
-        $response->write("{'success':false, 'message': " . $e->getMessage() . "}");
+        $response->getBody()->write($e->getMessage());
+        return $response;
     }
-    return $response;
 });
 
-// $app->get('/hello/{name}', function(Request $request, Response $response) 
-// {
-//     $name = $request->getAttribute('name');
-//     $response->getBody()->write("Hello, $name");
+$app->get("/GetSections/{id}", function(Request $request, Response $response) 
+{
+    try
+    {
+        $id = $request->getAttribute('id');
+        $db = Connect();
+        $data = array();
+        $result = $db->query("SELECT id, section, redirectTo FROM menu where id = $id");
+        while($row = $result->fetch_assoc())
+        {
+            $sections = array('id' => $row["id"],
+                              'section' => $row["section"],
+                              'redirectTo' => $row["redirectTo"]);
+            $section = array();
+            $section = array_merge($sections, $section);
+            array_push($data, $section);
+        }
+        $db->close();
+        $response->getBody()->write(json_encode($data));
+        return $response;
+    }
+    catch(Exception $e)
+    {
+        $response->getBody()->write($e->getMessage());
+        return $response;
+    }
+});
 
-//     return $response;
-// });
 $app->run();

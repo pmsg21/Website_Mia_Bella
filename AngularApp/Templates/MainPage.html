@@ -1,17 +1,15 @@
 <div id="bannersCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-    <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#bannersCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#bannersCarousel" data-slide-to="1"></li>
         <li data-target="#bannersCarousel" data-slide-to="2"></li>
     </ol>
-    <!-- Wrapper for slides -->
     <div class="carousel-inner">
-        <div class="item" data-ng-class="{'active': banner.index == 1}" data-ng-repeat="banner in banners">
-            <img src="{{banner.imgSrc}}" alt="{{banner.imgAlt}}" class="img-responsive carouselZoom">
+        <div class="item" data-ng-class="{'active': banner.index_banner == 1}" data-ng-repeat="banner in banners">
+            <img src="{{banner.img_src}}" alt="{{banner.img_alt}}" class="img-responsive carouselZoom">
             <div class="carousel-caption">
-                <h1>{{banner.captionTitle}}</h1>
-                <p>{{banner.captionDescription}}</p>
+                <h1>{{banner.caption_title}}</h1>
+                <p>{{banner.caption_description}}</p>
             </div>
         </div>
     </div>

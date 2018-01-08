@@ -1,13 +1,9 @@
-MiaBellaApp.controller('HeaderController', function($scope , $location, Constants, anchorSmoothScroll)
+MiaBellaApp.controller('HeaderController', function($scope , $location, Constants, anchorSmoothScroll, $http)
 {   
     $scope.loading = false;
-    $scope.config = Constants;
+    $scope.constants = Constants;
     $scope.currentNavItem = "Home";
-    $scope.navItems = [{section:'Home', redirectTo:'home'},
-                       {section:'About Us', redirectTo:'aboutUs'},
-                       {section:'Online Store', redirectTo:'onlineStore'},
-                       {section:'Courses', redirectTo:'courses'},
-                       {section:'Contacts', redirectTo:'contacts'}]
+    $scope.navItems = [];
     
     $scope.scrollTo = function (elementID)
     {
@@ -22,5 +18,13 @@ MiaBellaApp.controller('HeaderController', function($scope , $location, Constant
         else
             anchorSmoothScroll.scrollTo(elementID);
     };
+
+    $http.get($scope.constants.apiURL + "GetSections/").then(function(response)
+    {
+        if(response.status == 200)
+        {
+            $scope.navItems = response.data;
+        }
+    })
 
 });
