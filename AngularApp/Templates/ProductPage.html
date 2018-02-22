@@ -1,24 +1,27 @@
-<section id="product" data-ng-init="GetProductDetails()">
+<div class="overlay" ng-if="loading">
+    <md-progress-circular md-mode="indeterminate" ng-if="loading"></md-progress-circular>
+</div>
+<section id="product" data-ng-init="GetProductDetail()">
     <div class="container">
         <header>
-            <h1 class="text-center">{{productName}}</h1>
+            <h1 class="text-center">{{productsDetails.product_name}}</h1>
             <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet voluptate repellat necessitatibus ratione corrupti aperiam consequuntur odio.</p>
         </header>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <img src="{{imgSrc}}" alt="{{imgAlt}}" class="img-responsive">
+                <img src="{{productsDetails.img_src}}" alt="{{productsDetails.img_alt}}" class="img-responsive">
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <md-card>
                     <md-card-title>
                         <md-card-title-text>
-                            <h2>{{productName}}</h2>
-                            <p>{{productDescription}}</p>
+                            <h2>{{productsDetails.product_name}}</h2>
+                            <p>{{productsDetails.product_description}}</p>
                         </md-card-title-text>
                     </md-card-title>
                     <md-card-content>
                         <form novalidate name="productForm" data-ng-submit="AddToCart()">
-                            <h3>$ {{productPrice}}</h3>
+                            <h3>$ {{productsDetails.product_price}}</h3>
                             <small>
                                 Califica este producto 
                                 <md-icon aria-label="rating"><i class="fa fa-star fa-2x" aria-hidden="true"></i></md-icon>

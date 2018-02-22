@@ -19,11 +19,11 @@ MiaBellaApp.controller('HeaderController', function($scope , $location, Constant
             anchorSmoothScroll.scrollTo(elementID);
     };
 
-    $http.get($scope.constants.apiURL + "GetSections/").then(function(response)
+    $http.get($scope.constants.apiURL + "GetSections").then(function(response)
     {
         if(response.status == 200)
         {
-            $scope.navItems = response.data;
+            $scope.navItems = response.data.data;
         }
     })
 

@@ -1,7 +1,7 @@
 <?php
-define('DBHOST','localhost');
-define('DBUSER','adminMia');
-define('DBPASS','admin12345Mia');
+define('DBHOST','localhost:3306');
+define('DBUSER','root');
+define('DBPASS','2184');
 define('DBNAME','mia_bella');
 function Connect()
 {

@@ -1,5 +1,9 @@
 //#region Sticky Menu
 $(document).ready(function() {
+    //Ocultar el loader y mostrar el body
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("body-content").style.display = "block";
+
     var stickyNavTop = $('.nav').offset().top;
     var stickyNav = function()
     {

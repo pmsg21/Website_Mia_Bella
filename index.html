@@ -46,63 +46,84 @@
         <script src="AngularApp/JS/Controllers/ProductController.js"></script>
     </head>
     <body data-ng-app="MiaBella">
-        <div data-ng-controller="HeaderController" class="HeaderController" id="header">
-          <header id="home">
-            <div class="row">
-              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <img src="Content/img/logo.png" alt="logo" class="img-responsive logo"> 
-              </div>
-              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6 hidden-xs iconsMargin">
-                <div class="row">
-                  <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 iconSeparator">
-                    <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="facebook">
-                      <img src="Content/img/icons/facebook.svg" class="img-responsive" alt="facebook"></img>
-                    </md-button>
-                    <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="twitter">
-                      <img src="Content/img/icons/twitter.svg" class="img-responsive" alt="twitter"></img>
-                    </md-button>
-                    <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="instagram">
-                      <img src="Content/img/icons/instagram.svg" class="img-responsive" alt="instagram"></img>
-                    </md-button>
-                    <md-button aria-label="login/register">
-                      <b class="text-uppercase blackText">Login/Register</b>
-                    </md-button>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pull-right">
-                    <md-button class="md-icon-button noMargin" aria-label="Shopping Cart">
-                      <img src="Content/img/icons/shopping-cart.svg" class="img-responsive" alt="Shopping Cart"></img>
-                    </md-button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </header>  
-          <md-content class="md-padding nav">
-            <div class="row">
-              <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3">
-                <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-                  <div class="visible-xs">
-                      <span style="font-size:30px;color:white" onclick="AnimateSidenav()">&#9776;</span>
-                      <div id="sidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="AnimateSidenav()">&times;</a>
-                        <a data-ng-repeat="item in navItems" onclick="AnimateSidenav()" data-ng-click="scrollTo(item.redirectTo)" href="#">{{item.section}}</a>
-                      </div>
-                  </div>
-                  <md-nav-item class="hidden-xs" md-nav-click="scrollTo(item.redirectTo)" data-ng-repeat="item in navItems" name="{{item.section}}">
-                    {{item.section}}
-                  </md-nav-item>
-                </md-nav-bar>
-              </div>
-            </div>
-          </md-content>
-        </div>
-        <div data-ng-view class="body" id="body">
-
-        </div>
-        <footer id="footer">
+        <div id="loader">
             <div class="container">
-                <p class="text-center whiteText">&copy; Copyright: 2017</p>
+                <div class="row">
+                    <svg viewBox="0 0 960 300">
+                        <symbol id="s-text">
+                            <text text-anchor="middle" x="50%" y="80%">Loading...</text>
+                        </symbol>
+
+                        <g class = "g-ants">
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                            <use xlink:href="#s-text" class="text-copy"></use>
+                        </g>
+                    </svg>
+                </div>
             </div>
-        </footer>
+        </div>
+        <div id="body-content">
+            <div data-ng-controller="HeaderController" class="HeaderController" id="header">
+                <header id="home">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <img src="Content/img/logo.png" alt="logo" class="img-responsive logo">
+                        </div>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6 hidden-xs iconsMargin">
+                            <div class="row">
+                                <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-6 iconSeparator">
+                                    <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="facebook">
+                                        <img src="Content/img/icons/facebook.svg" class="img-responsive" alt="facebook"></img>
+                                    </md-button>
+                                    <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="twitter">
+                                        <img src="Content/img/icons/twitter.svg" class="img-responsive" alt="twitter"></img>
+                                    </md-button>
+                                    <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="instagram">
+                                        <img src="Content/img/icons/instagram.svg" class="img-responsive" alt="instagram"></img>
+                                    </md-button>
+                                    <md-button aria-label="login/register">
+                                        <b class="text-uppercase blackText">Login/Register</b>
+                                    </md-button>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 pull-right">
+                                    <md-button class="md-icon-button noMargin" aria-label="Shopping Cart">
+                                        <img src="Content/img/icons/shopping-cart.svg" class="img-responsive" alt="Shopping Cart"></img>
+                                    </md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <md-content class="md-padding nav">
+                    <div class="row">
+                        <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3">
+                            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                                <div class="visible-xs">
+                                    <span style="font-size:30px;color:white" onclick="AnimateSidenav()">&#9776;</span>
+                                    <div id="sidenav" class="sidenav">
+                                        <a href="javascript:void(0)" class="closebtn" onclick="AnimateSidenav()">&times;</a>
+                                        <a data-ng-repeat="item in navItems" onclick="AnimateSidenav()" data-ng-click="scrollTo(item.redirectTo)" href="#">{{item.section}}</a>
+                                    </div>
+                                </div>
+                                <md-nav-item class="hidden-xs" md-nav-click="scrollTo(item.redirectTo)" data-ng-repeat="item in navItems" name="{{item.section}}">
+                                    {{item.section}}
+                                </md-nav-item>
+                            </md-nav-bar>
+                        </div>
+                    </div>
+                </md-content>
+            </div>
+            <div data-ng-view class="body" id="body">
+
+            </div>
+            <footer id="footer">
+                <div class="container">
+                    <p class="text-center whiteText">&copy; Copyright: 2017</p>
+                </div>
+            </footer>
+        </div>
     </body>
 </html>

@@ -7,10 +7,110 @@ body
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    #body-content
+    {
+        display: none;
+        opacity: 1;
+        animation: smooth-enter 1s ease;
+    }
+    @-webkit-keyframes smooth-enter
+    {
+        0%   {opacity: 0}
+        100% {opacity: 1}
+    }
+    @-o-keyframes smooth-enter
+    {
+        0%   {opacity: 0}
+        100% {opacity: 1}
+    }
+    @-moz-keyframes smooth-enter
+    {
+        0%   {opacity: 0}
+        100% {opacity: 1}
+    }
+    @keyframes smooth-enter
+    {
+        0%   {opacity: 0}
+        100% {opacity: 1}
+    }
+    .overlay
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(64, 64, 64, 0.76);
+        z-index: 20;
+        md-progress-circular
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -25px 0 0 -25px;
+        }
+        md-progress-circular.md-default-theme path, md-progress-circular path
+        {
+            stroke: @primaryDetailsColor;
+        }
+    }
+    #loader
+    {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+        svg
+        {
+            display: block;
+            font: 10.5em 'Montserrat';
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .text-copy
+        {
+            fill: none;
+            stroke: white;
+            stroke-dasharray: 6% 29%;
+            stroke-width: 5px;
+            stroke-dashoffset: 0%;
+            animation: stroke-offset 5.5s infinite linear;
+        }
+        .text-copy:nth-child(1)
+        {
+            stroke: #f55d14;
+            animation-delay: -1;
+        }
+        .text-copy:nth-child(2)
+        {
+            stroke: black;
+            animation-delay: -2s;
+        }
+        .text-copy:nth-child(3)
+        {
+            stroke: #f55d14;
+            animation-delay: -3s;
+        }
+        .text-copy:nth-child(4)
+        {
+            stroke: black;
+            animation-delay: -4s;
+        }
+        .text-copy:nth-child(5)
+        {
+            stroke: #f55d14;
+            animation-delay: -5s;
+        }
+        @keyframes stroke-offset
+        {
+            100% {stroke-dashoffset: -35%;}
+        }
+    }
     .body
     {
         background: white;
     }
+
     .blackText
     {
         color: @blackText;
@@ -86,7 +186,7 @@ body
         {
             border-right: 1px solid black;
         }
-        .md-button.md-icon-button 
+        .md-button.md-icon-button
         {
             margin-left: -30px;
             height: 100%;
@@ -121,13 +221,13 @@ body
         {
             border: none;
         }
-        
+
         md-nav-bar.md-default-theme md-nav-ink-bar, md-nav-bar md-nav-ink-bar
         {
             color: @primaryDetailsColor;
             background: @primaryDetailsColor;
         }
-        md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected 
+        md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected
         {
             color: @whiteText;
             -o-transition: all .5s;
@@ -135,7 +235,7 @@ body
             -webkit-transition: all .5s;
             transition: all .5s;
         }
-        md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected:hover 
+        md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected:hover
         {
             color: @primaryDetailsColor;
         }
@@ -177,7 +277,7 @@ body
             background-color: black;
             border-color: black;
         }
-    }  
+    }
     .carouselZoom
     {
         -webkit-animation: carouselZoomAnimation 15s linear infinite alternate;
@@ -223,7 +323,7 @@ body
     }
     .carousel-caption
     {
-        border: 2px solid white; 
+        border: 2px solid white;
         opacity: 1;
         position: absolute;
         top: 0;
@@ -304,7 +404,7 @@ body
         color: @blackText;
         .col-lg-4
         {
-            margin-top: 10%;    
+            margin-top: 10%;
             margin-bottom: 3%;
         }
         img
@@ -398,7 +498,7 @@ body
         background: -webkit-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Safari 5.1 to 6.0 */
         background: -o-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Opera 11.1 to 12.0 */
         background: -moz-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Firefox 3.6 to 15 */
-        background: linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* Standard syntax (must be last) */   
+        background: linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* Standard syntax (must be last) */
         padding: 5%;
     }
     .HalfWidthModal
@@ -417,11 +517,11 @@ body
         }
         md-input-container:not(.md-input-invalid).md-input-focused .md-input
         {
-            border-color: @lightDetailsColor !important; 
+            border-color: @lightDetailsColor !important;
         }
         md-input-container:not(.md-input-invalid).md-input-focused label
         {
-            color: @lightDetailsColor !important; 
+            color: @lightDetailsColor !important;
         }
     }
     #product
@@ -471,11 +571,11 @@ body
             }
             md-input-container:not(.md-input-invalid).md-input-focused .md-input
             {
-                border-color: @lightDetailsColor !important; 
+                border-color: @lightDetailsColor !important;
             }
             md-input-container:not(.md-input-invalid).md-input-focused label
             {
-                color: @lightDetailsColor !important; 
+                color: @lightDetailsColor !important;
             }
         }
     }

@@ -1,4 +1,4 @@
-<div id="bannersCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+<div id="bannersCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-ng-init="GetBanners()">
     <ol class="carousel-indicators">
         <li data-target="#bannersCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#bannersCarousel" data-slide-to="1"></li>
@@ -38,16 +38,16 @@
             <h1 class="text-center"><span class="dottedBorder blackText">{{onlineStore.title}}</span></h1>
             <hr>
         </header>
-        <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin" data-ng-repeat="product in onlineStore.products">
+        <div class="row" data-ng-init="GetProducts()">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin" data-ng-repeat="product in products">
                 <div class="ih-item circle effect13 from_left_and_right">
-                    <a href="javascript:void(0)" data-ng-click="ShowProductDetails(product.productId)">
+                    <a href="javascript:void(0)" data-ng-click="ShowProductDetails(product.product_id)">
                         <div class="img">
-                                <img src="{{product.imgSrc}}" alt="{{product.imgAlt}}" class="img-responsive">
+                                <img src="{{product.img_src}}" alt="{{product.img_alt}}" class="img-responsive">
                         </div>
                         <div class="info">
                             <div class="info-back">
-                                <h3>{{product.productName}}</h3>
+                                <h3>{{product.product_name}}</h3>
                                 <p>Ver Detalles</p>
                             </div>
                         </div>
