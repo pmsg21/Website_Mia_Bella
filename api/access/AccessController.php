@@ -16,12 +16,12 @@ $app->post("/RegisterUser", function(Request $request, Response $response)
     try
     {
         $jsonObject = $request->getParams();
-        $db = Connect();
+        $db = _Connect();
         $data = array();
         $encryptedPassword = password_hash($jsonObject["password"], PASSWORD_BCRYPT);
         if(UserExist($db, $jsonObject["username"]) > 0)
         {
-            $finalResponse = GetResponse(false, "This user already exist.", $data);
+            $finalResponse = _GetResponse(false, "This user already exist.", $data);
         }
         else
         {
@@ -32,13 +32,13 @@ $app->post("/RegisterUser", function(Request $request, Response $response)
             {
                 $data = array('user_id' => $row["user_id"]);
             }
-            $finalResponse = GetResponse(true, null, $data);
+            $finalResponse = _GetResponse(true, null, $data);
         }
         $db->close();
     }
     catch (Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -49,15 +49,15 @@ $app->post("/RegisterUserDetails", function(Request $request, Response $response
     try
     {
         $jsonObject = $request->getParams();
-        $db = Connect();
+        $db = _Connect();
         $db->query("INSERT INTO mia_bella.user_details(user_id, first_name, last_name, email, sex, birthday, address)
                           VALUES(". $jsonObject["user_id"] .", '" . $jsonObject["first_name"] ."', '" . $jsonObject["last_name"] ."', '" . $jsonObject["email"] ."', '" . $jsonObject["sex"] ."', '" . $jsonObject["birthday"] ."', '" . $jsonObject["address"] ."')");
         $db->close();
-        $finalResponse = GetResponse(true, null, $jsonObject);
+        $finalResponse = _GetResponse(true, null, $jsonObject);
     }
     catch (Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -70,7 +70,7 @@ $app->post("/Login", function(Request $request, Response $response)
     try
     {
         $jsonObject = $request->getParams();
-        $db = Connect();
+        $db = _Connect();
         if(UserExist($db, $jsonObject["username"]) > 0)
         {
             if(CheckEncryptedPassword($db, $jsonObject["username"], $jsonObject["password"]))
@@ -82,22 +82,22 @@ $app->post("/Login", function(Request $request, Response $response)
                 // Set session variables
                 //$_SESSION["token"] = $token;
                 $data = array("token" => $token);
-                $finalResponse = GetResponse(true, "Login Successful", $data);
+                $finalResponse = _GetResponse(true, "Login Successful", $data);
             }
             else
             {
-                $finalResponse = GetResponse(false, "The password is incorrect.", $jsonObject);
+                $finalResponse = _GetResponse(false, "The password is incorrect.", $jsonObject);
             }
         }
         else
         {
-            $finalResponse = GetResponse(false, "This user doesn't exist in the system.", $jsonObject);
+            $finalResponse = _GetResponse(false, "This user doesn't exist in the system.", $jsonObject);
         }
         $db->close();
     }
     catch (Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -111,11 +111,11 @@ $app->get("/Logout", function(Request $request, Response $response)
         //session_unset();
         // destroy the session
         //session_destroy();
-        $finalResponse = GetResponse(true, "Logout Successful", null);
+        $finalResponse = _GetResponse(true, "Logout Successful", null);
     }
     catch (Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -128,7 +128,7 @@ $app->get("/GetUserDetails/{user_id}", function(Request $request, Response $resp
     try
     {
         $user_id = $request->getAttribute('user_id');
-        $db = Connect();
+        $db = _Connect();
         $data = array();
         $result = $db->query("SELECT 	user_id,
                                             first_name,
@@ -152,16 +152,16 @@ $app->get("/GetUserDetails/{user_id}", function(Request $request, Response $resp
         $db->close();
         if(count($data) > 0)
         {
-            $finalResponse = GetResponse(true, null, $data);
+            $finalResponse = _GetResponse(true, null, $data);
         }
         else
         {
-            $finalResponse = GetResponse(false, "This user doesn't exist.", $data);
+            $finalResponse = _GetResponse(false, "This user doesn't exist.", $data);
         }
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -173,7 +173,7 @@ $app->put("/EditUserDetails/{user_id}", function(Request $request, Response $res
     {
         $user_id = $request->getAttribute('user_id');
         $jsonObject = $request->getParams();
-        $db = Connect();
+        $db = _Connect();
         $db->query("UPDATE mia_bella.user_details
                           SET first_name = '" . $jsonObject["first_name"] ."',
                               last_name = '" . $jsonObject["last_name"] ."',
@@ -183,11 +183,11 @@ $app->put("/EditUserDetails/{user_id}", function(Request $request, Response $res
                               address = '" . $jsonObject["address"] ."'
                           WHERE user_id = $user_id");
         $db->close();
-        $finalResponse = GetResponse(true, "User updated successfully", $jsonObject);
+        $finalResponse = _GetResponse(true, "User updated successfully", $jsonObject);
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -199,17 +199,17 @@ $app->put("/EditUserPassword/{user_id}", function(Request $request, Response $re
     {
         $user_id = $request->getAttribute('user_id');
         $jsonObject = $request->getParams();
-        $db = Connect();
+        $db = _Connect();
         $encryptedPassword = password_hash($jsonObject["password"], PASSWORD_BCRYPT);
         $db->query("UPDATE mia_bella.users
                           SET password = '" . $encryptedPassword ."'
                           WHERE user_id = $user_id");
         $db->close();
-        $finalResponse = GetResponse(true, "Password updated successfully", $jsonObject);
+        $finalResponse = _GetResponse(true, "Password updated successfully", $jsonObject);
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;

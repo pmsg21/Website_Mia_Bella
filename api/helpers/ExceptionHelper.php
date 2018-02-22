@@ -5,7 +5,7 @@
  * Date: 12/02/18
  * Time: 10:58 AM
  */
-function GetException(Exception $e)
+function _GetException(Exception $e)
 {
     $exceptionResponse = array( "success" => false,
                                 "message" => $e->getMessage(),

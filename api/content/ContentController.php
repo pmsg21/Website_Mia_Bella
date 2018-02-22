@@ -13,7 +13,7 @@ $app->get("/GetBanners", function(Request $request, Response $response)
 {
     try
     {
-        $db = Connect();
+        $db = _Connect();
         $data = array();
         $result = $db->query("SELECT 	banner.index_banner,
                                             banner.caption_title, 
@@ -35,11 +35,11 @@ $app->get("/GetBanners", function(Request $request, Response $response)
             array_push($data, $banner);
         }
         $db->close();
-        $finalResponse = GetResponse(true, null, $data);
+        $finalResponse = _GetResponse(true, null, $data);
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;

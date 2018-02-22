@@ -7,7 +7,6 @@ require 'connection/connection.php';
 require 'helpers/ExceptionHelper.php';
 require 'helpers/ResponseHelper.php';
 
-//Se hace una instancia de la aplicación de Slim
 $app = new \Slim\App;
 
 //Se obtienen las secciones para la navegación de la página
@@ -15,7 +14,7 @@ $app->get("/GetSections", function(Request $request, Response $response)
 {
     try
     {
-        $db = Connect();
+        $db = _Connect();
         $data = array();
         $result = $db->query("SELECT menu_id, section, redirectTo FROM menu");
         while($row = $result->fetch_assoc())
@@ -28,15 +27,14 @@ $app->get("/GetSections", function(Request $request, Response $response)
             array_push($data, $section);
         }
         $db->close();
-        $finalResponse = GetResponse(true, null, $data);
+        $finalResponse = _GetResponse(true, null, $data);
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
 });
 
-//Se corre la aplicación
 $app->run();

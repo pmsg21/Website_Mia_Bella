@@ -13,7 +13,7 @@ $app->get("/GetProducts/", function(Request $request, Response $response)
 {
     try
     {
-        $db = Connect();
+        $db = _Connect();
         $data = array();
         $result = $db->query("SELECT 	product.product_id,
                                             product.product_name, 
@@ -32,11 +32,11 @@ $app->get("/GetProducts/", function(Request $request, Response $response)
             array_push($data, $product);
         }
         $db->close();
-        $finalResponse = GetResponse(true, null, $data);
+        $finalResponse = _GetResponse(true, null, $data);
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
@@ -47,7 +47,7 @@ $app->get("/GetProducts/{product_id}", function(Request $request, Response $resp
     try
     {
         $product_id = $request->getAttribute('product_id');
-        $db = Connect();
+        $db = _Connect();
         $data = array();
         $result = $db->query("SELECT 	detail.product_id,
                                             product.product_name,
@@ -69,11 +69,11 @@ $app->get("/GetProducts/{product_id}", function(Request $request, Response $resp
                               'img_alt' => $row["img_alt"]);
         }
         $db->close();
-        $finalResponse = GetResponse(true, null, $data);
+        $finalResponse = _GetResponse(true, null, $data);
     }
     catch(Exception $e)
     {
-        $finalResponse = GetException($e);
+        $finalResponse = _GetException($e);
     }
     $response->getBody()->write($finalResponse);
     return $response;
