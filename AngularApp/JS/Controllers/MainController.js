@@ -68,22 +68,24 @@ MiaBellaApp.controller('MainController', function($scope, $location, $mdDialog, 
     
     $scope.OpenContactModal = function(ev) 
     {
+        $("#app-body").toggleClass("overflowVisible");
         $mdDialog.show({
             controller: ContactController,
             templateUrl: 'AngularApp/Templates/Modals/ContactModal.html',
             parent: angular.element(document.body),
             targetEvent: ev,
-            clickOutsideToClose:true,
-            fullscreen: $scope.customFullscreen
+            clickOutsideToClose:false,
+            fullscreen: true
         });
     };
 
-    function ContactController($scope, $mdDialog) 
+    function ContactController($scope, $mdDialog, Webservice)
     {
         $scope.loading = false;
 
         $scope.cancel = function() 
         {
+            $("#app-body").toggleClass("overflowVisible");
             $mdDialog.cancel();
         };
     

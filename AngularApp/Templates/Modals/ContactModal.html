@@ -56,11 +56,11 @@
 
         <md-dialog-actions layout="row">
             <span flex></span>
-            <md-button type="submit" data-ng-disabled="!contactForm.$valid">
-                Send
-            </md-button>
-            <md-button data-ng-click="cancel()">
+            <md-button class="md-raised" data-ng-click="cancel()">
                 Cancel
+            </md-button>
+            <md-button class="md-raised md-primary" type="submit" data-ng-disabled="!contactForm.$valid">
+                Send
             </md-button>
         </md-dialog-actions>
     </form>

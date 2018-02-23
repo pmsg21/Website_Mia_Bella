@@ -1,0 +1,56 @@
+<md-dialog aria-label="Contact Forms" class="HalfWidthModal">
+    <div class="overlay" data-ng-if="loading">
+        <md-progress-circular md-mode="indeterminate" data-ng-if="loading"></md-progress-circular>
+    </div>
+    <div class="overlay" data-ng-show="showError" data-ng-click="hideOverlay()">
+        <p ng-click="dialogCtrl.click()" style="padding:1%;background-color: #f74439">
+            {{errorMessage}}
+        </p>
+    </div>
+    <form novalidate name="userForm" data-ng-submit="SubmitContact()">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Login/Register</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" data-ng-click="cancel()">
+                    <md-icon aria-label="Close dialog"><i class="fa fa-times fa-2x" aria-hidden="true"></i></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <md-input-container class="md-block">
+                        <label>Username</label>
+                        <input type="text" required name="username" data-ng-model="user.username">
+                        <div data-ng-messages="userForm.username.$error">
+                            <div data-ng-message="required">This field is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <input type="password" required name="password" data-ng-model="user.password">
+                        <div data-ng-messages="userForm.password.$error">
+                            <div data-ng-message="required">This field is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button class="pull-left" data-ng-click="Register()">
+                <a href="javascript:void(0)">Register</a>
+            </md-button>
+            <md-button class="md-raised" data-ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button class="md-raised md-primary" type="submit" data-ng-disabled="!userForm.$valid">
+                Log  in
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

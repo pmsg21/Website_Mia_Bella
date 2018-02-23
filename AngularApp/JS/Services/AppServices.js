@@ -18,7 +18,7 @@ var Webservice = function($http, Constants, $rootScope)
     {
         if($rootScope.online)
         {
-            return $http.post(url, parameters).then(DefaultSuccessFunction, DefaultErrorFunction);
+            return $http.post(Constants.apiURL + url, parameters).then(DefaultSuccessFunction, DefaultErrorFunction);
         }
         else
         {

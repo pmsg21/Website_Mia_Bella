@@ -8,39 +8,11 @@ body {
 body #body-content {
   display: none;
   opacity: 1;
-  animation: smooth-enter 1s ease;
+  animation: animateOpacity 1s ease;
 }
-@-webkit-keyframes smooth-enter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-o-keyframes smooth-enter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes smooth-enter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes smooth-enter {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+body .smooth-enter {
+  animation: animateOpacity 1s ease;
+  opacity: 1;
 }
 body .overlay {
   position: absolute;
@@ -56,6 +28,19 @@ body .overlay md-progress-circular {
   top: 50%;
   left: 50%;
   margin: -25px 0 0 -25px;
+}
+body .overlay p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 50%;
+  height: 20%;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
 }
 body .overlay md-progress-circular.md-default-theme path,
 body .overlay md-progress-circular path {
@@ -145,6 +130,12 @@ body .md-button.md-default-theme.md-primary.md-raised,
 body .md-button.md-primary.md-raised:hover {
   background-color: #fd5c11 !important;
 }
+body .md-button.md-default-theme.md-fab[disabled],
+body .md-button.md-fab[disabled],
+body .md-button.md-default-theme.md-raised[disabled],
+body .md-button.md-raised[disabled] {
+  opacity: .5;
+}
 body .col-lg-1,
 body .col-lg-10,
 body .col-lg-11,
@@ -196,10 +187,21 @@ body .col-xs-9 {
   padding-right: 0;
   padding-left: 0;
 }
-body .md-primary {
+body .input-group-addon {
+  background: rgba(0, 0, 0, 0.79);
+  background: -webkit-linear-gradient(#000000, #464646);
+  background: -o-linear-gradient(#000000, #464646);
+  background: -moz-linear-gradient(#000000, #464646);
+  background: linear-gradient(#000000, #464646);
+  color: #fd681d;
+}
+body .md-primary-lg {
   width: 50%;
   margin-top: 10%;
   text-transform: capitalize;
+}
+body .HeaderController .sticky {
+  z-index: 101;
 }
 body .HeaderController .logo {
   width: 40%;
@@ -620,6 +622,257 @@ body #product md-card md-input-container:not(.md-input-invalid).md-input-focused
 }
 body #product md-card md-input-container:not(.md-input-invalid).md-input-focused label {
   color: #ffa500 !important;
+}
+body md-backdrop.md-opaque {
+  opacity: .9;
+  background-color: black;
+}
+body #register {
+  /* according menu */
+}
+body #register .wizard {
+  margin: 20px auto;
+  background: #fff;
+}
+body #register .wizard .nav-tabs {
+  position: relative;
+  margin: 40px auto;
+  margin-bottom: 0;
+  border-bottom-color: #e0e0e0;
+}
+body #register .wizard div.wizard-inner {
+  position: relative;
+}
+body #register li a:hover {
+  cursor: default !important;
+}
+body #register .connecting-line {
+  height: 2px;
+  background: #e0e0e0;
+  position: absolute;
+  width: 70%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 1;
+}
+body #register .wizard .nav-tabs > li.active > a,
+body #register .wizard .nav-tabs > li.active > a:hover,
+body #register .wizard .nav-tabs > li.active > a:focus {
+  color: #555555;
+  cursor: pointer;
+  border: 0;
+  border-bottom-color: transparent;
+}
+body #register span.round-tab {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  display: inline-block;
+  border-radius: 100px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  font-size: 25px;
+}
+body #register span.round-tab i {
+  color: #555555;
+}
+body #register .wizard li.active span.round-tab {
+  background: #fff;
+  border: 2px solid #ff702b;
+}
+body #register .wizard li.active span.round-tab i {
+  color: #ff702b;
+}
+body #register span.round-tab:hover {
+  color: #333;
+  border: 2px solid #333;
+}
+body #register .wizard .nav-tabs > li {
+  width: 33%;
+}
+body #register .wizard li:after {
+  content: " ";
+  position: absolute;
+  left: 46%;
+  opacity: 0;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 5px solid transparent;
+  border-bottom-color: #ff702b;
+  transition: 0.1s ease-in-out;
+}
+body #register .wizard li.active:after {
+  content: " ";
+  position: absolute;
+  left: 46%;
+  opacity: 1;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 10px solid transparent;
+  border-bottom-color: #ff702b;
+}
+body #register .wizard .nav-tabs > li a {
+  width: 70px;
+  height: 70px;
+  margin: 20px auto;
+  border-radius: 100%;
+  padding: 0;
+}
+body #register .wizard .nav-tabs > li a:hover {
+  background: transparent;
+}
+body #register .wizard .tab-pane {
+  position: relative;
+  padding-top: 50px;
+}
+body #register .wizard h3 {
+  margin-top: 0;
+}
+body #register .step1 .row {
+  margin-bottom: 10px;
+}
+body #register .step_21 {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+}
+body #register .step33 {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+body #register .dropselectsec {
+  width: 68%;
+  padding: 6px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #333;
+  margin-left: 10px;
+  outline: none;
+  font-weight: normal;
+}
+body #register .dropselectsec1 {
+  width: 74%;
+  padding: 6px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #333;
+  margin-left: 10px;
+  outline: none;
+  font-weight: normal;
+}
+body #register .mar_ned {
+  margin-bottom: 10px;
+}
+body #register .wdth {
+  width: 25%;
+}
+body #register .birthdrop {
+  padding: 6px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #333;
+  margin-left: 10px;
+  width: 16%;
+  outline: 0;
+  font-weight: normal;
+}
+body #register #accordion-container {
+  font-size: 13px;
+}
+body #register .accordion-header {
+  font-size: 13px;
+  background: #ebebeb;
+  margin: 5px 0 0;
+  padding: 7px 20px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 400;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+body #register .unselect_img {
+  width: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body #register .active-header {
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+  background: #F53B27;
+}
+body #register .active-header:after {
+  content: "\f068";
+  font-family: 'FontAwesome';
+  float: right;
+  margin: 5px;
+  font-weight: 400;
+}
+body #register .inactive-header {
+  background: #333;
+}
+body #register .inactive-header:after {
+  content: "\f067";
+  font-family: 'FontAwesome';
+  float: right;
+  margin: 4px 5px;
+  font-weight: 400;
+}
+body #register .accordion-content {
+  display: none;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: 0;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+}
+body #register .accordion-content a {
+  text-decoration: none;
+  color: #333;
+}
+body #register .accordion-content td {
+  border-bottom: 1px solid #dcdcdc;
+}
+@media (max-width: 585px) {
+  body #register .wizard {
+    width: 90%;
+    height: auto !important;
+  }
+  body #register span.round-tab {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+  body #register .wizard .nav-tabs > li a {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+  body #register .wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 35%;
+  }
+}
+body .tooltip {
+  font-size: 14px;
+}
+.overflowVisible {
+  overflow-x: visible;
 }
 /* PANTALLAS DE ESCRITORIO MEDIANAS*/
 @media only screen and (min-device-width: 1152px) and (max-device-width: 1300px) {

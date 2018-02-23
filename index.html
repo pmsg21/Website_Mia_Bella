@@ -44,8 +44,9 @@
         <script src="AngularApp/JS/Controllers/HeaderController.js"></script>
         <script src="AngularApp/JS/Controllers/MainController.js"></script>
         <script src="AngularApp/JS/Controllers/ProductController.js"></script>
+        <script src="AngularApp/JS/Controllers/RegisterController.js"></script>
     </head>
-    <body data-ng-app="MiaBella">
+    <body data-ng-app="MiaBella" id="app-body">
         <div id="loader">
             <div class="container">
                 <div class="row">
@@ -84,7 +85,7 @@
                                     <md-button md-ink-ripple="#ffc1a3" class="md-icon-button" aria-label="instagram">
                                         <img src="Content/img/icons/instagram.svg" class="img-responsive" alt="instagram"></img>
                                     </md-button>
-                                    <md-button aria-label="login/register">
+                                    <md-button aria-label="login/register" data-ng-click="OpenLoginModal($event)">
                                         <b class="text-uppercase blackText">Login/Register</b>
                                     </md-button>
                                 </div>
@@ -97,7 +98,7 @@
                         </div>
                     </div>
                 </header>
-                <md-content class="md-padding nav">
+                <md-content class="md-padding nav" data-ng-init="GetNavSections()">
                     <div class="row">
                         <div class="col-lg-7 col-lg-offset-3 col-md-7 col-md-offset-3 col-sm-7 col-sm-offset-3">
                             <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">

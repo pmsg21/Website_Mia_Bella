@@ -78,9 +78,9 @@ $app->post("/Login", function(Request $request, Response $response)
                 //PHP7//$token = bin2hex(random_bytes(64));
                 $token = bin2hex(openssl_random_pseudo_bytes(64));
                 // Start the session
-                //session_start();
+                session_start();
                 // Set session variables
-                //$_SESSION["token"] = $token;
+                $_SESSION["token"] = $token;
                 $data = array("token" => $token);
                 $finalResponse = _GetResponse(true, "Login Successful", $data);
             }
@@ -107,10 +107,11 @@ $app->get("/Logout", function(Request $request, Response $response)
 {
     try
     {
+        session_start();
         // remove all session variables
-        //session_unset();
+        session_unset();
         // destroy the session
-        //session_destroy();
+        session_destroy();
         $finalResponse = _GetResponse(true, "Logout Successful", null);
     }
     catch (Exception $e)

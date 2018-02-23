@@ -1,0 +1,120 @@
+<div class="overlay" data-ng-if="loading">
+    <md-progress-circular md-mode="indeterminate" data-ng-if="loading"></md-progress-circular>
+</div>
+<div id="register" class="container-fluid">
+    <div class="row">
+        <section>
+            <div class="wizard">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" data-ng-class="{'active': showStep1, 'inactive': !showStep1}">
+                            <a href="javascript:void(0)" aria-controls="step1">
+                            <span class="round-tab">
+                                <md-tooltip class="tooltip" md-direction="top">User Credentials</md-tooltip>
+                                <i class="fa fa-address-card"></i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" data-ng-class="{'active': showStep2, 'disabled': !showStep2}">
+                            <a href="javascript:void(0)" aria-controls="step2">
+                            <span class="round-tab">
+                                <md-tooltip class="tooltip" md-direction="top">User Details</md-tooltip>
+                                <i class="fa fa-pencil"></i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" data-ng-class="{'active': registerCompleted, 'disabled': !registerCompleted}">
+                            <a href="javascript:void(0)" aria-controls="complete">
+                            <span class="round-tab">
+                                <md-tooltip class="tooltip" md-direction="top">Register Completed</md-tooltip>
+                                <i class="fa fa-check"></i>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <section class="container smooth-enter" data-ng-show="showStep1">
+                    <header>
+                        <h2 class="text-center">User credentials</h2>
+                    </header>
+                    <div class="container-fluid">
+                        <form name="userCredentialsForm" data-ng-submit="SubmitUserCredentials()">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input autofocus data-ng-model="credentials.username" type="text" required class="form-control" name="email" placeholder="Username">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input data-ng-model="credentials.password" type="password" required class="form-control" name="password" placeholder="Password">
+                            </div>
+                            <br>
+                            <md-button type="submit" class="md-raised md-primary pull-right" data-ng-disabled="!userCredentialsForm.$valid" aria-label="login/register">
+                                <b class="text-uppercase whiteText">Next</b>
+                            </md-button>
+                        </form>
+                    </div>
+                </section>
+                <section class="container smooth-enter" data-ng-show="showStep2">
+                    <header>
+                        <h2 class="text-center">User details</h2>
+                    </header>
+                    <div class="container-fluid">
+                        <form name="userDetailsForm" data-ng-submit="SubmitUserDetails()">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input data-ng-model="details.first_name" type="text" required class="form-control" name="email" placeholder="First name">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input data-ng-model="details.last_name" type="text" required class="form-control" name="password" placeholder="Last name">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input data-ng-model="details.email" type="email" required class="form-control" name="email" placeholder="Email">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-venus-mars"></i></span>
+                                <select data-ng-model="details.sex" required class="form-control">
+                                    <option data-ng-value="'M'">Male</option>
+                                    <option data-ng-value="'F'">Female</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input data-ng-model="details.birthdayDate" type="date" required class="form-control" name="email" placeholder="Birthday">
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                <input data-ng-model="details.address" type="text" required class="form-control" name="password" placeholder="Address">
+                            </div>
+                            <br>
+                            <md-button type="submit" class="md-raised md-primary pull-right" data-ng-disabled="!userDetailsForm.$valid" aria-label="login/register">
+                                <b class="text-uppercase whiteText">Accept</b>
+                            </md-button>
+                        </form>
+                    </div>
+                </section>
+                <section class="container smooth-enter" data-ng-show="registerCompleted">
+                    <header>
+                        <h2 class="text-center">Register completed</h2>
+                    </header>
+                    <div class="container-fluid alert-success">
+                        <h4 class="text-center">Thank you for taking the time to register in our site, now you can access to your personal account and shopping cart. Happy shopping!</h4>
+                    </div>
+                    <md-button data-ng-click="GoHome()" class="md-raised md-primary pull-right" aria-label="login/register">
+                        <b class="text-uppercase whiteText">Go home</b>
+                    </md-button>
+                </section>
+            </div>
+        </section>
+    </div>
+</div>
