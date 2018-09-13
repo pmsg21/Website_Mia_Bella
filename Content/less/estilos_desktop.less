@@ -141,6 +141,11 @@ body
             width: 100%;
         }
     }
+    p
+    {
+        font-size: 16px;
+        text-align: justify;
+    }
     .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised
     {
         background-color: @primaryDetailsColor !important;
@@ -217,6 +222,8 @@ body
             -moz-transition: all .5s;
             -webkit-transition: all .5s;
             transition: all .5s;
+            font-size: 30px;
+            color: #d3d3d3;
         }
         .md-button.md-icon-button:hover
         {
@@ -227,6 +234,31 @@ body
             -ms-transform: scale(1.1);
             -webkit-transform: scale(1.1);
             transform: scale(1.1);
+        }
+        .md-button.md-icon-button i
+        {
+            -webkit-transition: all .5s;
+            -moz-transition: all .5s;
+            -ms-transition: all .5s;
+            -o-transition: all .5s;
+            transition: all .5s;
+        }
+        .facebook:hover i
+        {
+            color: #3b5998;
+        }
+        .twitter:hover i
+        {
+            color: #00aced;
+        }
+        .instagram:hover i
+        {
+            background: #d6249f;
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 3%;
         }
         .md-button.md-default-theme.md-accent, .md-button.md-accent
         {
@@ -245,7 +277,7 @@ body
         }
         md-nav-bar.md-default-theme .md-button._md-nav-button.md-unselected, md-nav-bar .md-button._md-nav-button.md-unselected
         {
-            color: @whiteText;
+            color: @grayText;
             -o-transition: all .5s;
             -moz-transition: all .5s;
             -webkit-transition: all .5s;
@@ -261,11 +293,7 @@ body
         }
         md-content.md-default-theme, md-content
         {
-            background: black; /* For browsers that do not support gradients */
-            background: -webkit-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Safari 5.1 to 6.0 */
-            background: -o-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Opera 11.1 to 12.0 */
-            background: -moz-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Firefox 3.6 to 15 */
-            background: linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* Standard syntax (must be last) */
+            background: transparent;
         }
         .md-padding
         {
@@ -420,7 +448,7 @@ body
         color: @blackText;
         .col-lg-4
         {
-            margin-top: 10%;
+            //margin-top: 10%;
             margin-bottom: 3%;
         }
         img
@@ -441,6 +469,21 @@ body
     }
     #onlineStore
     {
+        .featured
+        {
+            border-bottom: 1px solid rgba(255, 112, 43, .5);
+            padding-bottom: 5%;
+            margin-bottom: 5%;
+            .productMargin
+            {
+                margin-top: 1%;
+            }
+            .orangeText
+            {
+                text-transform: uppercase;
+                font-size: 13px
+            }
+        }
         .productMargin
         {
             margin-top: 5%;
@@ -516,6 +559,24 @@ body
         background: -moz-linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* For Firefox 3.6 to 15 */
         background: linear-gradient(rgb(0,0,0), rgb(70,70,70)); /* Standard syntax (must be last) */
         padding: 5%;
+        li
+        {
+            display: inline-block;
+            padding: 1%;
+            .orangeText
+            {
+                -webkit-transition: all .5s;
+                -moz-transition: all .5s;
+                -ms-transition: all .5s;
+                -o-transition: all .5s;
+                transition: all .5s;
+            }
+            .orangeText:hover
+            {
+                color: orangered;
+                text-decoration: none;
+            }
+        }
     }
     .HalfWidthModal
     {

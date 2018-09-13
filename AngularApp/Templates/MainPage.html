@@ -1,4 +1,4 @@
-<div id="bannersCarousel" class="carousel slide" data-ride="carousel" data-interval="5000" data-ng-init="GetBanners()">
+<div id="bannersCarousel" class="carousel slide hi" data-ride="carousel" data-interval="5000" data-ng-init="GetBanners()">
     <ol class="carousel-indicators">
         <li data-target="#bannersCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#bannersCarousel" data-slide-to="1"></li>
@@ -21,16 +21,24 @@
             <hr>
         </header>
         <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p>
+                    Mia Bella is handmade jewelry designed with a casual style that you can wear anywhere, anytime. To
+                    make our pieces we use semi precious stones, leather, wood, gold plated charms, chains and other
+                    materials that combined with creativity and passion for what we do make possible this dream of
+                    making an alternative proposal of jewelry.
+                </p>
+            </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <h2 class="text-left">{{aboutUs.subTitle}}</h2>
+                <h3 class="text-left">{{aboutUs.subTitle}}</h3>
                 <p class="text-justify">{{aboutUs.content}}</p>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 hidden-xs">
-                <img src="{{aboutUs.imgSrc}}" alt="{{aboutUs.imgAlt}}" class="img-responsive">
+                <!--<img src="{{aboutUs.imgSrc}}" alt="{{aboutUs.imgAlt}}" class="img-responsive">-->
             </div>
         </div>
     </div>
-<div class="aboutUsBackground hidden-xs"></div>
+<!--<div class="aboutUsBackground hidden-xs"></div>-->
 </section>
 <section id="onlineStore">
     <div class="container">
@@ -39,7 +47,44 @@
             <hr>
         </header>
         <div class="row" data-ng-init="GetProducts()">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin" data-ng-repeat="product in products">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 featured">
+                <h2><span class="dottedBorder blackText">Featured</span></h2>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin">
+                    <div class="ih-item circle effect13 from_left_and_right">
+                        <a href="javascript:void(0)">
+                            <div class="img">
+                                <img src="Content/img/products/pulsera_1.jpg" alt="pulsera1" class="img-responsive">
+                            </div>
+                            <div class="info">
+                                <div class="info-back">
+                                    <h3>Pulsera 1</h3>
+                                    <p class="text-center">Ver Detalles <br> <span class="orangeText">Más vendido</span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin">
+                    <div class="ih-item circle effect13 from_left_and_right">
+                        <a href="javascript:void(0)">
+                            <div class="img">
+                                <img src="Content/img/products/pulsera_2.jpg" alt="pulsera2" class="img-responsive">
+                            </div>
+                            <div class="info">
+                                <div class="info-back">
+                                    <h3>Pulsera 2</h3>
+                                    <p class="text-center">Ver Detalles <br> <span class="orangeText">Nuevo!</span></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <h2><span class="dottedBorder blackText">Products</span></h2>
+            <p>
+                <small>Free Shipping with $99 order (only US).</small>
+            </p>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin" data-ng-repeat="product in products">
                 <div class="ih-item circle effect13 from_left_and_right">
                     <a href="javascript:void(0)" data-ng-click="ShowProductDetails(product.product_id)">
                         <div class="img">
@@ -48,7 +93,7 @@
                         <div class="info">
                             <div class="info-back">
                                 <h3>{{product.product_name}}</h3>
-                                <p>Ver Detalles</p>
+                                <p class="text-center">Ver Detalles</p>
                             </div>
                         </div>
                     </a>

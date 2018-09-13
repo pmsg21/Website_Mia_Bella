@@ -1,7 +1,7 @@
 <?php
 define('DBHOST','localhost:3306');
 define('DBUSER','root');
-define('DBPASS','2184');
+define('DBPASS','reaxium');
 define('DBNAME','mia_bella');
 function _Connect()
 {

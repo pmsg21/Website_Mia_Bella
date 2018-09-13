@@ -5,7 +5,7 @@ MiaBellaApp.controller('MainController', function($scope, $location, $mdDialog, 
     $scope.banners = [];
     $scope.aboutUs = {'title': 'About Us', 
                       'subTitle': 'Membership is for everyone!',
-                      'content': 'lorem impsum dolor sit amet, consectetuer asipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam eram volutpat',
+                      'content': 'Become a member and get 10% off your first order',
                       'imgSrc': 'Content/img/banners/about_us.png',
                       'imgAlt': 'about_us'};
     $scope.onlineStore = {'title': 'Online Store'};
