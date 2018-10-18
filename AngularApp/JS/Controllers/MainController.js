@@ -16,6 +16,44 @@ MiaBellaApp.controller('MainController', function($scope, $location, $mdDialog, 
     $scope.contacts = {'title': 'Contacts',
                        'imgSrc': 'Content/img/banners/contacts.png',
                        'imgAlt': 'contacts'};
+    $scope.categories =
+    [
+        {
+            "name": "Necklaces",
+            "product_type_id":1,
+            "active": false
+        },
+        {
+            "name": "Bracelets",
+            "product_type_id":2,
+            "active": true
+        },
+        {
+            "name": "Rings",
+            "product_type_id":3,
+            "active": false
+        }
+    ];
+    $scope.productCategory =
+    {
+        "product_type_id":2
+    };
+    var i = 0;
+
+    $scope.setProductCategory = function(category)
+    {
+        cleanProductButtons();
+        $scope.productCategory.product_type_id = category.product_type_id;
+        category.active = true;
+    };
+
+    function cleanProductButtons()
+    {
+        for(i = 0; i < $scope.categories.length; i++)
+        {
+            $scope.categories[i].active = false;
+        }
+    }
 
     $scope.GetBanners = function ()
     {

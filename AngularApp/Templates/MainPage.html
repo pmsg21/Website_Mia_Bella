@@ -84,7 +84,13 @@
             <p>
                 <small>Free Shipping with $99 order (only US).</small>
             </p>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin" data-ng-repeat="product in products">
+            <h3 class="text-center blackText"><span class="dottedBorder">Categories</span></h3>
+            <div class="categoriesButtons">
+                <md-button data-ng-repeat="category in categories" class="md-primary categoryButton" data-ng-class="{'md-raised':category.active}" data-ng-click="setProductCategory(category)">
+                    {{category.name}}
+                </md-button>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-10 col-xs-offset-1 productMargin" data-ng-repeat="product in products | filter : productCategory">
                 <div class="ih-item circle effect13 from_left_and_right">
                     <a href="javascript:void(0)" data-ng-click="ShowProductDetails(product.product_id)">
                         <div class="img">

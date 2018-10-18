@@ -16,17 +16,19 @@ $app->get("/GetProducts/", function(Request $request, Response $response)
         $db = _Connect();
         $data = array();
         $result = $db->query("SELECT 	product.product_id,
-                                            product.product_name, 
+                                            product.product_name,
+                                            product.product_type_id, 
                                             image.img_src, 
                                             image.img_alt 
                                     FROM mia_bella.products product 
                                     INNER JOIN mia_bella.images image on product.img_id = image.img_id");
         while($row = $result->fetch_assoc())
         {
-            $products = array('product_id' => $row["product_id"],
-                              'product_name' => $row["product_name"],
-                              'img_src' => $row["img_src"],
-                              'img_alt' => $row["img_alt"]);
+            $products = array(  'product_id' => $row["product_id"],
+                                'product_name' => $row["product_name"],
+                                'product_type_id' => $row["product_type_id"],
+                                'img_src' => $row["img_src"],
+                                'img_alt' => $row["img_alt"]);
             $product = array();
             $product = array_merge($products, $product);
             array_push($data, $product);
@@ -51,6 +53,7 @@ $app->get("/GetProducts/{product_id}", function(Request $request, Response $resp
         $data = array();
         $result = $db->query("SELECT 	detail.product_id,
                                             product.product_name,
+                                            product.product_type_id,
                                             detail.product_description,
                                             detail.product_price,
                                             image.img_src,
@@ -61,12 +64,13 @@ $app->get("/GetProducts/{product_id}", function(Request $request, Response $resp
                                     WHERE detail.product_id = $product_id");
         while($row = $result->fetch_assoc())
         {
-            $data = array('product_id' => $row["product_id"],
-                              'product_name' => $row["product_name"],
-                              'product_description' => $row["product_description"],
-                              'product_price' => floatval($row["product_price"]),
-                              'img_src' => $row["img_src"],
-                              'img_alt' => $row["img_alt"]);
+            $data = array(  'product_id' => $row["product_id"],
+                            'product_type_id' => $row["product_type_id"],
+                            'product_name' => $row["product_name"],
+                            'product_description' => $row["product_description"],
+                            'product_price' => floatval($row["product_price"]),
+                            'img_src' => $row["img_src"],
+                            'img_alt' => $row["img_alt"]);
         }
         $db->close();
         $finalResponse = _GetResponse(true, null, $data);

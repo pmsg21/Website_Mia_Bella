@@ -523,6 +523,24 @@ body #onlineStore .featured .orangeText {
   text-transform: uppercase;
   font-size: 13px;
 }
+body #onlineStore .categoriesButtons {
+  width: 100%;
+  text-align: center;
+}
+body #onlineStore .categoriesButtons .md-raised {
+  color: white !important;
+}
+body #onlineStore .categoriesButtons .categoryButton {
+  background-color: transparent;
+  border: 1px solid #dc6126;
+  color: black;
+  text-transform: capitalize;
+  transition: all .5s;
+}
+body #onlineStore .categoriesButtons .categoryButton:hover {
+  background-color: #ff702b;
+  color: white;
+}
 body #onlineStore .productMargin {
   margin-top: 5%;
 }

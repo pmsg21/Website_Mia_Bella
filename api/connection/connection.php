@@ -1,7 +1,10 @@
 <?php
-define('DBHOST','localhost:3306');
-define('DBUSER','root');
-define('DBPASS','reaxium');
+//define('DBHOST','localhost:3306');
+//define('DBUSER','root');
+//define('DBPASS','reaxium');
+define('DBHOST','50.62.177.22');
+define('DBUSER','adminBDMia');
+define('DBPASS','#admin12345BD');
 define('DBNAME','mia_bella');
 function _Connect()
 {
